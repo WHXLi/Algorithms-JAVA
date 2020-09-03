@@ -21,13 +21,6 @@ public class Main {
         myClass.printAbstractType();
 
         //Сравниваем переменую абстрактного типа с нашими местными
-        compareATD(array);
-    }
-
-    private static void compareATD(int[] array) {
-        for (int i : array) {
-            System.out.println("Результат сравнения " + (myClass.abstractType == i));
-        }
-        System.out.println("Время выполнения: " + System.nanoTime() + " наносек.");
+        myClass.compareATD(array);
     }
 }
