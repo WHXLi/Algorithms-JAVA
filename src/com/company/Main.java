@@ -20,6 +20,8 @@ public class Main {
         // 2.2
         linearSearch(100);
         linearSearch(4);
+        binarySearch(100);
+        binarySearch(4);
 
         // 2.4
         bubbleSort();
@@ -36,12 +38,37 @@ public class Main {
         for (int i : myArray) {
             if (i == key) {
                 long b = System.nanoTime();
-                System.out.println("Число нашлось: " + key + " - время выполнения: " + (b - a));
+                System.out.println("Число нашлось (линейный): " + key + " - время выполнения: " + (b - a));
                 return;
             }
         }
         long b = System.nanoTime();
-        System.out.println("Числа нет в массиве: " + key + " - время выполнения: " + (b - a));
+        System.out.println("Числа нет в массиве (линейный): " + key + " - время выполнения: " + (b - a));
+    }
+
+    private static void binarySearch(int key) {
+        int firstIndex = 0;
+        int lastIndex = myArray.length - 1;
+        boolean found = false;
+
+        long a = System.nanoTime();
+        while (firstIndex < lastIndex) {
+            int middleIndex = (firstIndex + lastIndex) / 2;
+            if(myArray[middleIndex] == key){
+                long b = System.nanoTime();
+                System.out.println("Число нашлось (бинарный): " + key + " - время выполнения: " + (b - a));
+                found = true;
+                break;
+            }else if (myArray[middleIndex] < key){
+                firstIndex = middleIndex + 1;
+            }else if (myArray[middleIndex] > key){
+                lastIndex = middleIndex - 1;
+            }
+        }
+        if (!found){
+            long b = System.nanoTime();
+            System.out.println("Числа нет в массиве (бинарный): " + key + " - время выполнения: " + (b - a));
+        }
     }
 
     private static void swap(int first, int second) {
@@ -80,16 +107,16 @@ public class Main {
         System.out.println(" - время выполнения: " + (b - a));
     }
 
-    private static void pastSort(){
+    private static void pastSort() {
         int in;
         int buff;
         long a = System.nanoTime();
         for (int i = 1; i < myArray.length; i++) {
             buff = myArray[i];
             in = i;
-            while (in > 0 && myArray[in-1] >= buff){
+            while (in > 0 && myArray[in - 1] >= buff) {
                 myArray[in] = myArray[in - 1];
-                -- in;
+                --in;
             }
             myArray[in] = buff;
         }
