@@ -2,9 +2,6 @@ package lesson4;
 
 import lesson1.MyClass;
 
-import java.util.Deque;
-import java.util.LinkedList;
-
 public class Main {
     public static void main(String[] args) {
         // 4.1 и 4.5 На основе данных объектного списка из задания 3.4 реализуйте простой стек и его базовые методы.
@@ -23,7 +20,7 @@ public class Main {
         }
         System.out.println(stack.toString());
 
-        // 4.2 На основе данных объектного списка из задания 3.4 реализуйте простую очередь и его базовые методы.
+        // 4.2 и 4.5 На основе данных объектного списка из задания 3.4 реализуйте простую очередь и его базовые методы.
         //Реализуйте вспомогательные методы.
         //Оцените время выполнения операций с помощью базового метода System.nanoTime().
         System.out.println("\nЗадание 4.2\n");
@@ -34,9 +31,6 @@ public class Main {
         System.out.println(queue.toString());
         queue.delete();
         System.out.println(queue.toString());
-
-        // 4.3 и 4.5 На основе данных объектного списка из задания 3.4 реализуйте простой дек и его базовые методы.
-        //Оцените время выполнения операций с помощью базового метода System.nanoTime().
 
     }
 }
